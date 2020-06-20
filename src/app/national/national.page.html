@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+
+  <ion-toolbar>
+    <ion-title>
+      Covid-19 cases in Spain
+    </ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Covid-19 cases in Spain</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card-subtitle>Spain</ion-card-subtitle>
+      <ion-card-title>Coronavirus Confirmed Cases</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <h1>{{ country?.countries?.spain?.TotalConfirmed }}</h1>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card-subtitle>Spain</ion-card-subtitle>
+      <ion-card-title>Deaths</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <h1>{{ country?.countries?.spain?.TotalDeaths }}</h1>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card-subtitle>Spain</ion-card-subtitle>
+      <ion-card-title>Recovered</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <h1>{{ country?.countries?.spain?.TotalRecovered }}</h1>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

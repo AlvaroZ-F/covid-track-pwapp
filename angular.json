@@ -33,10 +33,10 @@
             ],
             "styles": [
               {
-                "input": "src/theme/variables.scss"
+                "input": "src/assets/themes/variables.scss"
               },
               {
-                "input": "src/global.scss"
+                "input": "src/assets/global.scss"
               }
             ],
             "scripts": []
