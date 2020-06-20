@@ -13,9 +13,7 @@ export class NationalPage {
 
   constructor(private covidService: CovidService) {
 
-    this.covidService.getAll().subscribe((data) => {
-      this.country = data;
-    });
+      this.covidService.getAll();
   }
 
 }

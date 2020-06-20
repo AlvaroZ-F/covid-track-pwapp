@@ -3,21 +3,18 @@ import { CovidService } from '../covid.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-global',
-  templateUrl: 'global.page.html',
-  styleUrls: ['global.page.scss']
+    selector: 'app-global',
+    templateUrl: 'global.page.html',
+    styleUrls: ['global.page.scss']
 })
 export class GlobalPage {
 
-  info: any = null;
+    public info_global: any;
 
-  constructor(private covidService: CovidService) {
+    constructor(private covidService: CovidService) {
 
-    this.covidService.getAll().subscribe((data) => {
-      console.log(data);
-      this.info = data;
-    });
+        this.covidService.getAll()
 
-  }
+    }
 
 }
