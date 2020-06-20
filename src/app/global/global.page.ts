@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CovidService } from '../covid.service';
-import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-global',
@@ -13,7 +12,9 @@ export class GlobalPage {
 
     constructor(private covidService: CovidService) {
 
-        this.info_global = this.covidService.getAll()
+        this.covidService.getAll().forEach(m => {
+            console.log(m);
+		})
 
     }
 

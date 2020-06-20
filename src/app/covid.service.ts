@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
-import { Global } from './model/global';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,30 +11,15 @@ export class CovidService {
 
     constructor(private http: HttpClient) { }
 
-    getAll() {
-        this.http.get(`${this.apiUrl}summary`).toPromise().then(data => {
-            console.log(data);
-            return data;
-        });
+    getAll(): Observable<any> {
+        return this.http.get<any>(`${this.apiUrl}summary`);
     }
 
     getSpainTimespan(start_date, end_date) {
-        return this.http.get(`${this.apiUrl}country/spain/status/confirmed?from=${start_date}T00:00:00Z&to=${end_date}T00:00:00Z`).toPromise().then(data => {
+        return this.http.get<any>(`${this.apiUrl}country/spain/status/confirmed?from=${start_date}T00:00:00Z&to=${end_date}T00:00:00Z`).toPromise().then(data => {
             console.log(data);
             return data;
         });
     }
 
-    handleError(error) {
-        let errorMessage = '';
-        if (error.error instanceof ErrorEvent) {
-            // Get client-side error
-            errorMessage = error.error.message;
-        } else {
-            // Get server-side error
-            errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-        }
-        window.alert("Please check your internet connection!.");
-        return throwError(errorMessage);
-    }
 }
