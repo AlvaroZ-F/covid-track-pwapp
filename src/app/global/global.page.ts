@@ -13,7 +13,7 @@ export class GlobalPage {
 
     constructor(private covidService: CovidService) {
 
-        this.covidService.getAll()
+        this.info_global = this.covidService.getAll()
 
     }
 

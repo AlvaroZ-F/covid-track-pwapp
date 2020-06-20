@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CovidService } from '../covid.service';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-national',
@@ -13,7 +12,8 @@ export class NationalPage {
 
   constructor(private covidService: CovidService) {
 
-      this.covidService.getAll();
+      this.country = this.covidService.getAll();
+
   }
 
 }
