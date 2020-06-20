@@ -1,0 +1,7 @@
+{
+  "name": "covid-track-pwapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
