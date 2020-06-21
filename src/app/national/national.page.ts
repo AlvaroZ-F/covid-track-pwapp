@@ -30,10 +30,9 @@ export class NationalPage {
         this.getSpainTotal();
     }
 
-    getSpainTimeLine(start_date = "2020-03-02T00:00:00Z", end_date = new Date()) {
+    getSpainTimeLine(start_date = "2020-03-02", end_date = new Date("2020-06-21")) {
         this.covidService.getSpainTimespan(start_date, end_date).subscribe(val => {
             this.spain = val;
-            console.log(this.spain);
             this.getArrTimeLine();
         });
     }
@@ -69,7 +68,8 @@ export class NationalPage {
         var arr3 = [];
         this.spain.forEach(m => {
             if (temp == m.Date.slice(5, 7)) {
-                this.temp_confirmed = m.Confirmed;
+                this.temp_confirmed = m["Confirmed"];
+                console.log(m);
                 this.temp_deaths = m.Deaths;
                 this.temp_recovered = m.Recovered;
                 arr1.push(this.temp_confirmed);
