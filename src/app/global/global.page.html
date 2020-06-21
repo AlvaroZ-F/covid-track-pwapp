@@ -24,7 +24,7 @@
     </ion-card-header>
 
     <ion-card-content>
-      <h1>{{ info_global['TotalConfirmed'] }}</h1>
+      <h1>{{ total_confirmed | number }}</h1>
     </ion-card-content>
 
   </ion-card>
@@ -37,7 +37,7 @@
     </ion-card-header>
 
     <ion-card-content>
-      <h1>{{ info_global }}</h1>
+      <h1>{{ total_deaths | number }}</h1>
     </ion-card-content>
 
   </ion-card>
@@ -50,7 +50,7 @@
     </ion-card-header>
 
     <ion-card-content>
-      <h1>{{ info_global }}</h1>
+        <h1>{{ total_recovered | number }}</h1>
     </ion-card-content>
 
   </ion-card>

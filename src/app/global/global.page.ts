@@ -9,13 +9,27 @@ import { CovidService } from '../covid.service';
 export class GlobalPage {
 
     public info_global: any;
+    public info_country: [];
+    public total_confirmed: number;
+    public total_deaths: number;
+    public total_recovered: number;
 
     constructor(private covidService: CovidService) {
 
-        this.covidService.getAll().subscribe(val => {
+        this.covidService.getAll().subscribe((val) => {
             this.info_global = val.Global;
+            this.total_confirmed = this.info_global.TotalConfirmed;
+            this.total_deaths = this.info_global.TotalDeaths;
+            this.total_recovered = this.info_global.TotalRecovered;
         });
 
+    }
+
+    getCountries() {
+        this.covidService.getAll().subscribe(val => {
+            this.info_country = val.Countries;
+            console.log(this.info_country);
+        });
     }
 
 }
