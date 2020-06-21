@@ -30,8 +30,28 @@ export class GlobalPage {
 
     getCountries() {
         this.covidService.getAll().subscribe(val => {
-            this.info_country = val.Countries;
+            this.info_country = this.sortData('TotalConfirmed', val.Countries);
         });
     }
+
+    sortData(sortBy, data) {
+        try {
+            const sortProp = sortBy;
+            data.sort((a, b) => {
+                if (a[sortProp] < b[sortProp]) {
+                    return 1;
+                } else if (a[sortProp] > b[sortProp]) {
+                    return -1;
+                }
+                return 0;
+            })
+        } catch (e) {
+            console.error("ERROR while sorting", e);
+            return data;
+        }
+        console.log(data);
+        return data
+    }
+
 
 }
