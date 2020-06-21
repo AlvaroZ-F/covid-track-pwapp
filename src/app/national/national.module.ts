@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NationalPage } from './national.page';
+import { NationalPageRoutingModule } from './national-routing.module';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { NationalPage } from './national.page';
         path: '',
         component: NationalPage
       }
-    ])
+    ]),
+    NationalPageRoutingModule
   ],
   declarations: [NationalPage]
 })

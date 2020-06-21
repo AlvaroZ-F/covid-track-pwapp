@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { AboutPage } from './about.page';
+import { AboutPageRoutingModule } from './about-routing.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { AboutPage } from './about.page';
         path: '',
         component: AboutPage
       }
-    ])
+    ]),
+    AboutPageRoutingModule
   ]
 })
 export class AboutPageModule {}
