@@ -12,9 +12,9 @@ export class GlobalPage {
 
     constructor(private covidService: CovidService) {
 
-        this.covidService.getAll().forEach(m => {
-            console.log(m);
-		})
+        this.covidService.getAll().subscribe(val => {
+            this.info_global = val.Global;
+        });
 
     }
 
