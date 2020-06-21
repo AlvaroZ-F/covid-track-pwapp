@@ -21,6 +21,10 @@ export class NationalPage {
     public total_deaths: number;
     public total_recovered: number;
 
+    public temp_confirmed: number;
+    public temp_deaths: number;
+    public temp_recovered: number;
+
     constructor(private covidService: CovidService) {
         this.getSpainTimeLine(this.init_date, this.fin_date);
         this.getSpainTotal();
@@ -47,21 +51,35 @@ export class NationalPage {
 		})
     }
 
+    setDateS(event) {
+        this.init_date = event;
+        this.getArrTimeLine();
+    }
+    setDateE(event) {
+        this.fin_date = event;
+        this.getArrTimeLine();
+    }
+
     getArrTimeLine() {
-        var confirmed, deaths, recovered = [];
+        var confirmed = [], deaths = [], recovered = [];
         var temp = '01';
         this.spain.forEach(m => {
             var arr1 = [];
             var arr2 = [];
             var arr3 = [];
             if (temp == m.Date.slice(5, 7)) {
-                arr1.push(m.Confirmed);
-                arr2.push(m.Deaths);
-                arr3.push(m.Recovered);
+                this.temp_confirmed = m.Confirmed;
+                console.log(this.temp_confirmed);
+                this.temp_deaths = m.Deaths;
+                this.temp_recovered = m.Recovered;
+                arr1.push(this.temp_confirmed);
+                arr2.push(this.temp_deaths);
+                arr3.push(this.temp_recovered);
             } else {
                 var tempn = parseInt(temp);
                 tempn++;
                 temp = this.zeroFill(tempn, 2);
+                console.log(confirmed);
                 confirmed.push(this.addResults(arr1));
                 deaths.push(this.addResults(arr2));
                 recovered.push(this.addResults(arr3));

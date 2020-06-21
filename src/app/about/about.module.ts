@@ -9,7 +9,7 @@ import { AboutPage } from './about.page';
 
 @NgModule({
   imports: [
-    IonicModule,
+    IonicModule.forRoot(),
     CommonModule,
     FormsModule,
     RouterModule.forChild([

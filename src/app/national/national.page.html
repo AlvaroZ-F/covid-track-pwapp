@@ -63,7 +63,7 @@
         </ion-card-header>
 
         <ion-card-content>
-            <input type="date" min="2020-01-01" id="init_date" /><input type="date" min="2020-01-02" id="fin_date" />
+            <input type="date" #start min="2020-01-01" (change)="setDateS(start.value)" /><input type="date" #end min="2020-01-02" (change)="setDateE(end.value)" />
             <br />
             <canvas id="lineChart" style="width: 100%; height: 50%;"></canvas>
         </ion-card-content>
