@@ -8,19 +8,19 @@ import { CovidService } from '../covid.service';
 })
 export class NationalPage {
 
-    public country: [];
     public spain_timeline: any = null;
     public spain: any = null;
 
-    constructor(private covidService: CovidService) {
-        this.getCountries();
-    }
+    public init_date: any;
+    public fin_date: any;
 
-    getCountries() {
-        this.covidService.getAll().subscribe(val => {
-            this.country = val.Countries;
-            console.log(this.country);
-        });
+    public total_confirmed: number;
+    public total_deaths: number;
+    public total_recovered: number;
+
+    constructor(private covidService: CovidService) {
+        this.getSpainTimeLine(this.init_date, this.fin_date);
+        this.getSpainTotal();
     }
 
     getSpainTimeLine(start_date, end_date) {
@@ -33,8 +33,10 @@ export class NationalPage {
         this.covidService.getAll().subscribe(val => {
             var temporal_arr = val.Countries;
             temporal_arr.forEach(m => {
-                if (m.slug == "spain") {
-                    this.spain = m;
+                if (m.Country == "Spain") {
+                    this.total_confirmed = m.TotalConfirmed;
+                    this.total_deaths = m.TotalDeaths;
+                    this.total_recovered = m.TotalRecovered;
 				}
 			})
 		})

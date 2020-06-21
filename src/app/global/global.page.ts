@@ -8,8 +8,9 @@ import { CovidService } from '../covid.service';
 })
 export class GlobalPage {
 
+    public Country_Search: any;
     public info_global: any;
-    public info_country: [];
+    public info_country: any = null;
     public total_confirmed: number;
     public total_deaths: number;
     public total_recovered: number;
@@ -23,12 +24,13 @@ export class GlobalPage {
             this.total_recovered = this.info_global.TotalRecovered;
         });
 
+        this.getCountries();
+
     }
 
     getCountries() {
         this.covidService.getAll().subscribe(val => {
             this.info_country = val.Countries;
-            console.log(this.info_country);
         });
     }
 
