@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
     declarations: [
         AppComponent
     ],
+    entryComponents: [],
     imports: [
         BrowserModule,
         HttpClientModule,
