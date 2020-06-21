@@ -16,10 +16,7 @@ export class CovidService {
     }
 
     getSpainTimespan(start_date, end_date) {
-        return this.http.get<any>(`${this.apiUrl}country/spain/status/confirmed?from=${start_date}T00:00:00Z&to=${end_date}T00:00:00Z`).toPromise().then(data => {
-            console.log(data);
-            return data;
-        });
+        return this.http.get<any>(`${this.apiUrl}country/spain/status/confirmed?from=${start_date}T00:00:00Z&to=${end_date}T00:00:00Z`);
     }
 
 }
